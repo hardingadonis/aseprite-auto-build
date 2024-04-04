@@ -30,7 +30,7 @@ def download_skia_for_windows(tag):
 	with open(f'src/{SKIA_RELEASE_FILE_NAME}', 'wb') as f:
 		f.write(file_response.content)
 	
-	os.system(f'7z x src/{SKIA_RELEASE_FILE_NAME}')
+	os.system(f'7z x src/{SKIA_RELEASE_FILE_NAME} -osrc/skia')
 
 	pass
 
