@@ -1,0 +1,23 @@
+name: Auto build Aseprite
+
+on:
+  push:
+    branches: ["main"]
+
+jobs:
+  auto-build:
+    name: Auto build Aseprite for Windows x64
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Get Aseprite version
+        id: get_version
+        run: |
+          echo "version=$(./get_version.bat)" >> $GITHUB_OUTPUT
+
+      - name: Print Aseprite version
+        run: |
+          echo "Aseprite version: ${{ steps.get_version.outputs.version }}"
