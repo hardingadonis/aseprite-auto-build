@@ -13,11 +13,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Get Aseprite version
-        id: get_version
+      - name: Install Python requirements
         run: |
-          echo "version=$(./get_version.bat)" >> $GITHUB_OUTPUT
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
 
-      - name: Print Aseprite version
+      - name: Download & Build Aseprite
         run: |
-          echo "Aseprite version: ${{ steps.get_version.outputs.version }}"
+          python main.py
