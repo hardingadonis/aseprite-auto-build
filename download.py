@@ -38,8 +38,8 @@ def download_skia_for_windows(tag):
 
 if __name__ == '__main__':
 	aseprite_tag = get_latest_tag_aseprite()
-	#clone_aseprite(aseprite_tag)
+	clone_aseprite(aseprite_tag)
 	save_aseprite_tag(aseprite_tag)
 
 	skia_tag = get_latest_tag_skia()
-	#download_skia_for_windows(skia_tag)
+	download_skia_for_windows(skia_tag)
