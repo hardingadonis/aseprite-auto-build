@@ -31,12 +31,12 @@ jobs:
         with:
           arch: x64
 
-      - name: Build Aseprite
-        run: |
-          mkdir build
-          cd build
-          cmake "../src/aseprite" -G Ninja -DCMAKE_BUILD_TYPE=MinSizeRel -DLAF_BACKEND=skia -DSKIA_DIR="../src/skia" -DSKIA_LIBRARY_DIR="../src/skia/out/Release-x64" -DSKIA_LIBRARY="../src/skia/out/Release-x64/skia.lib"
-          ninja aseprite
+      # - name: Build Aseprite
+      #   run: |
+      #     mkdir build
+      #     cd build
+      #     cmake "../src/aseprite" -G Ninja -DCMAKE_BUILD_TYPE=MinSizeRel -DLAF_BACKEND=skia -DSKIA_DIR="../src/skia" -DSKIA_LIBRARY_DIR="../src/skia/out/Release-x64" -DSKIA_LIBRARY="../src/skia/out/Release-x64/skia.lib"
+      #     ninja aseprite
 
       - name: Get version
         id: get_version
