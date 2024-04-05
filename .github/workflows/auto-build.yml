@@ -40,7 +40,7 @@ jobs:
           cd build
           cmake "../src/aseprite" -G Ninja -DCMAKE_BUILD_TYPE=MinSizeRel -DLAF_BACKEND=skia -DSKIA_DIR="../src/skia" -DSKIA_LIBRARY_DIR="../src/skia/out/Release-x64" -DSKIA_LIBRARY="../src/skia/out/Release-x64/skia.lib"
           ninja aseprite
-          copy "C:/Program Files/OpenSSL-Win64/bin/libcrypto-1_1-x64.dll" ./bin
+          copy ../libcrypto-1_1-x64.dll ./bin
 
       - name: Get version
         id: get_version
