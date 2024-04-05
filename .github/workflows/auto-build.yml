@@ -10,7 +10,7 @@ permissions:
 jobs:
   auto-build:
     name: Auto build Aseprite for Windows x64
-    runs-on: windows-latest
+    runs-on: windows-2022
 
     steps:
       - name: Checkout repository
@@ -38,8 +38,9 @@ jobs:
         run: |
           mkdir build
           cd build
-          cmake "../src/aseprite" -G Ninja -DCMAKE_BUILD_TYPE=MinSizeRel -DCMAKE_USE_OPENSSL=OFF -DLAF_BACKEND=skia -DSKIA_DIR="../src/skia" -DSKIA_LIBRARY_DIR="../src/skia/out/Release-x64" -DSKIA_LIBRARY="../src/skia/out/Release-x64/skia.lib"
+          cmake "../src/aseprite" -G Ninja -DCMAKE_BUILD_TYPE=MinSizeRel -DLAF_BACKEND=skia -DSKIA_DIR="../src/skia" -DSKIA_LIBRARY_DIR="../src/skia/out/Release-x64" -DSKIA_LIBRARY="../src/skia/out/Release-x64/skia.lib"
           ninja aseprite
+          copy "C:/Program Files/OpenSSL-Win64/bin/libcrypto-1_1-x64.dll" ./bin
 
       - name: Get version
         id: get_version
