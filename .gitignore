@@ -13,3 +13,4 @@ _deps
 .venv/
 src/
 build/
+*.txt

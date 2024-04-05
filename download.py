@@ -10,6 +10,10 @@ def get_latest_tag_aseprite():
 	response_json = response.json()
 	return response_json['tag_name']
 
+def save_aseprite_tag(tag):
+	with open('version.txt', 'w') as f:
+		f.write(tag)
+
 def clone_aseprite(tag):
 	clone_url = f'https://github.com/{ASEPRITE_REPOSITORY}.git'
 	git_cmd = f'git clone -b {tag} {clone_url} src/aseprite --depth 1'
@@ -32,11 +36,10 @@ def download_skia_for_windows(tag):
 	
 	os.system(f'7z x src/{SKIA_RELEASE_FILE_NAME} -osrc/skia')
 
-	pass
-
 if __name__ == '__main__':
 	aseprite_tag = get_latest_tag_aseprite()
-	clone_aseprite(aseprite_tag)
+	#clone_aseprite(aseprite_tag)
+	save_aseprite_tag(aseprite_tag)
 
 	skia_tag = get_latest_tag_skia()
-	download_skia_for_windows(skia_tag)
+	#download_skia_for_windows(skia_tag)

@@ -37,3 +37,13 @@ jobs:
           cd build
           cmake "../src/aseprite" -G Ninja -DCMAKE_BUILD_TYPE=MinSizeRel -DLAF_BACKEND=skia -DSKIA_DIR="../src/skia" -DSKIA_LIBRARY_DIR="../src/skia/out/Release-x64" -DSKIA_LIBRARY="../src/skia/out/Release-x64/skia.lib"
           ninja aseprite
+
+      - name: Get version
+        id: get_version
+        run: |
+          $version = Get-Content version.txt
+          echo "version=$version" >> $env:GITHUB_ENV
+
+      - name: Test version
+        run: |
+          echo "Version: ${{ steps.get_version.outputs.version }}"
