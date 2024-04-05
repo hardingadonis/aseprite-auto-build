@@ -42,7 +42,7 @@ jobs:
         id: get_version
         run: |
           $version = Get-Content version.txt
-          echo "version=$version" >> $env:GITHUB_ENV
+          echo "version=$version" >> $env:GITHUB_OUTPUT
 
       - name: Test version
         run: |
