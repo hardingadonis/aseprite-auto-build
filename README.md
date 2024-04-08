@@ -14,8 +14,7 @@
 ## Usage:
 
 - Click `Use this template` to create a new repository.
-- Turn on the GitHub Actions in the `Actions` tab.
-- Run the workflow `Auto Build Aseprite` to build Aseprite.
+- Wait for the build to complete.
 
 ## Contributors:
 
