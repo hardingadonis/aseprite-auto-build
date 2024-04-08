@@ -16,9 +16,9 @@
 - Click `Use this template` to create a new repository.
 - Wait for the build to complete.
 
-## Youtube:
+## YouTube:
 
-<iframe width="1280" height="720" src="https://www.youtube.com/embed/Qx4GaWHLt40" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+[![YouTube](https://img.youtube.com/vi/Qx4GaWHLt40/0.jpg)](https://www.youtube.com/watch?v=Qx4GaWHLt40)
 
 ## Contributors:
 
