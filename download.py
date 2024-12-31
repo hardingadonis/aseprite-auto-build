@@ -6,9 +6,14 @@ SKIA_REPOSITORY = 'aseprite/skia'
 SKIA_RELEASE_FILE_NAME = 'Skia-Windows-Release-x64.zip'
 
 def get_latest_tag_aseprite():
-	response = requests.get(f'https://api.github.com/repos/{ASEPRITE_REPOSITORY}/releases/latest')
+	response = requests.get(f'https://api.github.com/repos/{ASEPRITE_REPOSITORY}/releases')
 	response_json = response.json()
-	return response_json['tag_name']
+
+	for release in response_json:
+		if 'beta' not in release['tag_name'].lower():
+			return release['tag_name']
+
+	return None
 
 def save_aseprite_tag(tag):
 	with open('version.txt', 'w') as f:
@@ -20,20 +25,10 @@ def clone_aseprite(tag):
 	os.system(git_cmd)
 	os.system('cd src/aseprite && git submodule update --init --recursive')
 
-def get_tag_skia(isBeta):
-	if not isBeta:
-		response = requests.get(f'https://api.github.com/repos/{SKIA_REPOSITORY}/releases/latest')
-		response_json = response.json()
-		return response_json['tag_name']
-	else:
-		response = requests.get(f'https://api.github.com/repos/{SKIA_REPOSITORY}/releases')
-		response_json = response.json()
-
-		for release in response_json:
-			if release['prerelease']:
-				return release['tag_name']
-		
-		return None
+def get_latest_tag_skia():
+	response = requests.get(f'https://api.github.com/repos/{SKIA_REPOSITORY}/releases/latest')
+	response_json = response.json()
+	return response_json['tag_name']
 
 def download_skia_for_windows(tag):
 	download_url = f'https://github.com/{SKIA_REPOSITORY}/releases/download/{tag}/{SKIA_RELEASE_FILE_NAME}'
@@ -51,7 +46,5 @@ if __name__ == '__main__':
 	clone_aseprite(aseprite_tag)
 	save_aseprite_tag(aseprite_tag)
 
-	isBeta = 'beta' in aseprite_tag.lower()
-
-	skia_tag = get_tag_skia(isBeta)
+	skia_tag = get_latest_tag_skia()
 	download_skia_for_windows(skia_tag)
