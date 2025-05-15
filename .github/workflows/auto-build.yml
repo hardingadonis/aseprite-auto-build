@@ -2,7 +2,9 @@ name: Auto build Aseprite
 
 on:
   push:
-    branches: ["main"]
+    branches: main
+  
+  workflow_dispatch:
 
 permissions:
   contents: write
