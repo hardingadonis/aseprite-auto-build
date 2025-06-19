@@ -35,7 +35,8 @@ jobs:
       - name: Build Aseprite
         run: |
           mkdir build
-          cmake -S "${{ github.workspace }}/src/aseprite" -B "${{ github.workspace }}/build" -DCMAKE_BUILD_TYPE=MinSizeRel -DENABLE_SCRIPTING=on -DLAF_BACKEND=skia -DSKIA_DIR="${{ github.workspace }}/src/skia" -DSKIA_LIBRARY_DIR="${{ github.workspace }}/src/skia/out/Release-x64" -DSKIA_LIBRARY="${{ github.workspace }}/src/skia/out/Release-x64/skia.lib"
+          cd build
+          cmake "${{ github.workspace }}/src/aseprite" -DCMAKE_BUILD_TYPE=MinSizeRel -DENABLE_SCRIPTING=on -DLAF_BACKEND=skia -DSKIA_DIR="${{ github.workspace }}/src/skia" -DSKIA_LIBRARY_DIR="${{ github.workspace }}/src/skia/out/Release-x64" -DSKIA_LIBRARY="${{ github.workspace }}/src/skia/out/Release-x64/skia.lib"
           cmake --build . --config MinSizeRel --target aseprite
           copy "C:/Windows/System32/libcrypto-1_1-x64.dll" ./bin
 
