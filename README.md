@@ -10,6 +10,7 @@
 
 > [!IMPORTANT]  
 > Only supports Windows x64
+> MUST BE INSTALL OpenSSL v3
 
 ## Usage:
 
