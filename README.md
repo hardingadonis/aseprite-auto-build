@@ -8,6 +8,19 @@
 
 > Auto build Aseprite via GitHub Actions
 
+## About:
+
+[Aseprite](https://www.aseprite.org/) is a popular animated sprite editor and pixel art tool. While Aseprite is a paid application, its [source code is publicly available](https://github.com/aseprite/aseprite) and can be compiled for free under its [EULA](https://github.com/aseprite/aseprite/blob/main/EULA.md).
+
+This project uses **GitHub Actions** to automatically:
+
+1. Fetch the latest stable release of Aseprite from the official repository
+2. Download the required [Skia](https://github.com/aseprite/skia) library
+3. Compile Aseprite for **Windows x64**
+4. Publish the compiled binary as a GitHub Release
+
+This means you can simply use this repository as a template and get a ready-to-use Aseprite build without needing to set up a local build environment.
+
 > [!IMPORTANT]  
 > Only supports Windows x64  
 > **MUST INSTALL OpenSSL v3 BEFORE RUNNING ASEPRITE**
